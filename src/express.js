@@ -14,8 +14,9 @@ server.get("/products", async (req, res) => {
     const products = await productManager.getProducts();
     if (!limit) {
       res.status(200).json(products);
+    } else {
+      res.status(200).json(products.slice(0, parseInt(limit)));
     }
-    res.status(200).json(products.slice(0, parseInt(limit)));
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
@@ -27,8 +28,9 @@ server.get("/products/:id", async (req, res) => {
     const product = await productManager.getProductById(productId);
     if (!product) {
       res.status(404).json({ message: "Product not found" });
+    } else {
+      res.status(200).json(product);
     }
-    res.status(200).json(product);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
