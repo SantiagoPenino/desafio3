@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from 'fs'
 
-export class ProductManager {
+class ProductManager {
   constructor() {
     this.path = "./products.json";
   }
@@ -212,3 +212,5 @@ const test = async () => {
 };
 
 test();
+
+export default ProductManager;

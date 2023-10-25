@@ -1,5 +1,5 @@
 import express from "express";
-import { ProductManager } from './ProductManager.js';
+import ProductManager from "./ProductManager.js";
 
 const server = express();
 const PORT = 8080;
@@ -29,5 +29,5 @@ server.get("/products/:id", async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);  
-})
+  console.log(`Server running on port ${PORT}`);
+});
