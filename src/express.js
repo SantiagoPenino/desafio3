@@ -17,7 +17,7 @@ server.get("/products", async (req, res) => {
     }
     res.status(200).json(products.slice(0, parseInt(limit)));
   } catch (error) {
-    console.log(error);
+    res.status(404).json({ error: error.message });
   }
 });
 
@@ -30,7 +30,7 @@ server.get("/products/:id", async (req, res) => {
     }
     res.status(200).json(product);
   } catch (error) {
-    console.log(error);
+    res.status(404).json({ error: error.message });
   }
 });
 
